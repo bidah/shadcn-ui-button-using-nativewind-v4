@@ -1,5 +1,5 @@
 import { vars, useColorScheme } from "nativewind";
-import { Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 const theme = vars({
   "--theme-fg": "#FFC0CB",
@@ -7,15 +7,22 @@ const theme = vars({
 });
 
 const App = () => {
-  const { setColorScheme } = useColorScheme();
+  const { setColorScheme, colorScheme } = useColorScheme();
 
-  setColorScheme("dark");
+  const toggleColorScheme = () => {
+    setColorScheme(colorScheme === "dark" ? "light" : "dark");
+  };
   return (
     <View
       className="flex-1 items-center justify-center bg-red-100 dark:bg-red-500"
       style={theme}
     >
-      <Text className="text-red-400 dark:text-red-200">hey baby girl</Text>
+      <Pressable
+        onPress={toggleColorScheme}
+        className={"bg-red-200 dark:bg-red-400 rounded-full p-2 px-4"}
+      >
+        <Text className="text-red-400 dark:text-red-200">TOGGLE THEME</Text>
+      </Pressable>
     </View>
   );
 };
