@@ -1,5 +1,6 @@
 import { vars, useColorScheme } from "nativewind";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text, View, PressableProps } from "react-native";
+import { cva, type VariantProps } from "class-variance-authority";
 
 const theme = vars({
   "--theme-fg": "#FFC0CB",
@@ -23,8 +24,51 @@ const App = () => {
       >
         <Text className="text-red-400 dark:text-red-200">TOGGLE THEME</Text>
       </Pressable>
+
+      <View className="mt-4" />
+
+      <Button intent="primary" size="small">
+        <Text>small</Text>
+      </Button>
     </View>
   );
 };
+
+const button = cva("button", {
+  variants: {
+    intent: {
+      primary: [
+        "bg-blue-500",
+        "text-white",
+        "border-transparent",
+        "hover:bg-blue-600",
+      ],
+      secondary: [
+        "bg-white",
+        "text-gray-800",
+        "border-gray-400",
+        "hover:bg-gray-100",
+      ],
+    },
+    size: {
+      small: ["text-sm", "py-1", "px-2"],
+      medium: ["text-base", "py-2", "px-4"],
+    },
+  },
+  compoundVariants: [{ intent: "primary", size: "medium", class: "uppercase" }],
+  defaultVariants: {
+    intent: "primary",
+    size: "medium",
+  },
+});
+
+interface ButtonProps extends PressableProps, VariantProps<typeof button> {}
+
+const Button: React.FC<ButtonProps> = ({
+  className,
+  intent,
+  size,
+  ...props
+}) => <Pressable className={button({ intent, size, className })} {...props} />;
 
 export default App;
