@@ -7,7 +7,10 @@ const theme = vars({
 
 const App = () => {
   return (
-    <View className="flex-1 items-center justify-center" style={theme}>
+    <View
+      className="flex-1 items-center justify-center bg-slate-100"
+      style={theme}
+    >
       <Text className="text-[--theme-fg]">hey baby girl</Text>
     </View>
   );
