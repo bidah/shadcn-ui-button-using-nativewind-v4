@@ -58,7 +58,6 @@ const Button: React.FC<ButtonProps> = ({
   size,
   ...props
 }) => {
-  console.log(buttonVariants.toString());
   return (
     <Pressable
       className={cn(buttonVariants({ variant, size, className }))}
@@ -71,9 +70,6 @@ const Button: React.FC<ButtonProps> = ({
       <Text
         // key={index}
         // {...props}
-        // className={cn(buttonVariants({ variant, size, className }))}
-        // className={variants[0][`${variant}Text`]}
-        // className={variants[1]["defaultText"]}
         className={variants[1][`${variant}Text`]}
       >
         {props.children}
