@@ -16,15 +16,8 @@ const App = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
   };
   return (
-    <View className="bg-primary flex-1">
-      <Text>hello world</Text>
-      <Text>hello</Text>
-      <Text>hello</Text>
-      <Text>hello</Text>
-      <Text>hello</Text>
-      <Text>hello</Text>
-
-      <Text className="text-brand text-5xl">hello</Text>
+    <View className="bg-background flex-1">
+      <Text className="text-primary text-5xl">hello</Text>
     </View>
     // <View
     //   className="flex-1 items-center justify-center bg-red-100 dark:bg-red-500"
