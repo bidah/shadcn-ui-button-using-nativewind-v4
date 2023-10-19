@@ -19,7 +19,7 @@ const App = () => {
   return (
     <View className="bg-background flex-1 p-5">
       <Text className="text-primary text-5xl">hello</Text>
-      <Button variant={"destructive"}>hey</Button>
+      <Button variant={"default"}>hello</Button>
     </View>
   );
 };
@@ -29,9 +29,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-secondary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-primary",
-        // "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
@@ -67,10 +67,12 @@ const Button: React.FC<ButtonProps> = ({
   // <Pressable className={buttonVariants({ intent, size, className })} {...props}>
   //   <Text className="text-primary">{props.children}</Text>
   // </Pressable>
-  <Text className={cn(buttonVariants({ variant, size, className }))} {...props}>
-    hey
-    {/* {props.children} */}
-  </Text>
+  <Pressable
+    className={cn(buttonVariants({ variant, size, className }))}
+    {...props}
+  >
+    <Text className="text-primary-foreground">{props.children}</Text>
+  </Pressable>
 );
 
 export default App;
