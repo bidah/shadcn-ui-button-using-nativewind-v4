@@ -20,6 +20,7 @@ const App = () => {
     <View className="bg-background flex-1 p-5">
       <Text className="text-primary text-5xl">hello</Text>
       <Button variant={"default"}>hello</Button>
+      <Text className="text-destructive-foreground text-4xl">second </Text>
     </View>
   );
 };
@@ -64,9 +65,6 @@ const Button: React.FC<ButtonProps> = ({
   size,
   ...props
 }) => (
-  // <Pressable className={buttonVariants({ intent, size, className })} {...props}>
-  //   <Text className="text-primary">{props.children}</Text>
-  // </Pressable>
   <Pressable
     className={cn(buttonVariants({ variant, size, className }))}
     {...props}
