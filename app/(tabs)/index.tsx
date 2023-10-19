@@ -16,7 +16,7 @@ const App = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
   };
   return (
-    <View className="bg-background flex-1">
+    <View className="bg-background flex-1 p-5">
       <Text className="text-primary text-5xl">hello</Text>
     </View>
     // <View
