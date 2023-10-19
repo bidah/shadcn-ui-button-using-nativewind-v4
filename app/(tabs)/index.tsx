@@ -28,13 +28,13 @@ const App = () => {
 const variants = [
   "flex-row items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
   {
+    defaultText: "text-primary-foreground",
+    destructiveText: "text-destructive-foreground",
     variants: {
       variant: {
         //what if default is an array and we grab frist item for wrapper and second for text?
         default: "bg-primary hover:bg-primary/90",
-        defaultText: "text-primary-foreground",
         destructive: "bg-destructive hover:bg-destructive/90",
-        destructiveText: "text-destructive-foreground",
         outline:
           "text-primary-foreground border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
@@ -83,7 +83,9 @@ const Button: React.FC<ButtonProps> = ({
         // key={index}
         // {...props}
         // className={cn(buttonVariants({ variant, size, className }))}
-        className="text-destructive-foreground"
+        // className={variants[0][`${variant}Text`]}
+        // className={variants[1]["defaultText"]}
+        className={variants[1][`${variant}Text`]}
       >
         {props.children}
       </Text>
