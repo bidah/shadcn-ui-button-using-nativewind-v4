@@ -4,7 +4,12 @@ module.exports = {
   content: ["app/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    colors: {
+      brand: "var(--my-brand-color)",
+    },
   },
-  plugins: [],
+  plugins: [
+    // Set a default value on the `:root` element
+    ({ addBase }) => addBase({ ":root": { "--my-brand-color": "red" } }),
+  ],
 };

@@ -5,6 +5,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 const theme = vars({
   "--theme-fg": "#FFC0CB",
   "--theme-bg": "#00FF00",
+  "--color-primary": "black",
+  "--color-secondary": "white",
 });
 
 const App = () => {
@@ -14,23 +16,50 @@ const App = () => {
     setColorScheme(colorScheme === "dark" ? "light" : "dark");
   };
   return (
-    <View
-      className="flex-1 items-center justify-center bg-red-100 dark:bg-red-500"
-      style={theme}
-    >
-      <Pressable
-        onPress={toggleColorScheme}
-        className={"bg-red-200 dark:bg-red-400 rounded-full p-2 px-4"}
-      >
-        <Text className="text-red-400 dark:text-red-200">TOGGLE THEME</Text>
-      </Pressable>
-
-      <View className="mt-4" />
-
-      <Button intent="primary" size="small">
-        <Text>small</Text>
-      </Button>
+    <View className="bg-primary flex-1">
+      <Text>hello</Text>
+      <Text>hello</Text>
+      <Text>hello</Text>
+      <Text>hello</Text>
+      <Text>hello</Text>
+      <Text>hello</Text>
+      <Text>hello</Text>
     </View>
+    // <View
+    //   className="flex-1 items-center justify-center bg-red-100 dark:bg-red-500"
+    //   style={theme}
+    // >
+    //   <Pressable
+    //     onPress={toggleColorScheme}
+    //     className={"bg-red-200 dark:bg-red-400 rounded-full p-2 px-4"}
+    //   >
+    //     <Text className="text-red-400 dark:text-red-200">TOGGLE THEME</Text>
+    //   </Pressable>
+
+    //   <View className="mt-4" />
+
+    //   <Button intent="secondary" size="small">
+    //     <Text>small</Text>
+    //   </Button>
+
+    //   <View className="mt-4" />
+
+    //   <Button>
+    //     <Text>smallish</Text>
+    //   </Button>
+
+    //   <View className="mt-4" />
+
+    //   <Text className="text-4xl font-bold text-[--theme-fg] transition duration-[5s] ">
+    //     Variables
+    //   </Text>
+    //   <Text className="text-4xl font-bold active:scale-150 active:text-red-500 transition duration-[500ms]">
+    //     Transitions
+    //   </Text>
+    //   <Text className="text-4xl font-bold animate-none active:animate-bounce">
+    //     Animations
+    //   </Text>
+    // </View>
   );
 };
 
@@ -55,7 +84,7 @@ const button = cva("button", {
       medium: ["text-base", "py-2", "px-4"],
     },
   },
-  compoundVariants: [{ intent: "primary", size: "medium", class: "uppercase" }],
+  compoundVariants: [{ intent: "primary", size: "small", className: "px-8" }],
   defaultVariants: {
     intent: "primary",
     size: "medium",
