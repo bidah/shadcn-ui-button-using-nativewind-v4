@@ -4,23 +4,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/utils";
 import React from "react";
 
-const theme = vars({
-  "--theme-fg": "#FFC0CB",
-  "--theme-bg": "#00FF00",
-  "--color-primary": "black",
-  "--color-secondary": "white",
-});
-
 const App = () => {
-  const { setColorScheme, colorScheme } = useColorScheme();
-
-  const toggleColorScheme = () => {
-    setColorScheme(colorScheme === "dark" ? "light" : "dark");
-  };
   return (
     <View className="bg-background flex-1 p-5">
-      <Text className="text-primary text-5xl">hello</Text>
-      <Button variant={"destructive"}>hello world</Button>
+      <Button variant={"default"}>hello world</Button>
     </View>
   );
 };
@@ -30,9 +17,11 @@ const variants = [
   {
     defaultText: "text-primary-foreground",
     destructiveText: "text-destructive-foreground",
+    outlineText: "text-primary",
+    ghostText: "text-primary",
+    linkText: "text-primary",
     variants: {
       variant: {
-        //what if default is an array and we grab frist item for wrapper and second for text?
         default: "bg-primary hover:bg-primary/90",
         destructive: "bg-destructive hover:bg-destructive/90",
         outline:
