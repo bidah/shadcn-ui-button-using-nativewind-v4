@@ -2,6 +2,7 @@ import { vars, useColorScheme } from "nativewind";
 import { Pressable, Text, View, PressableProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/utils";
+import React from "react";
 
 const theme = vars({
   "--theme-fg": "#FFC0CB",
@@ -19,8 +20,7 @@ const App = () => {
   return (
     <View className="bg-background flex-1 p-5">
       <Text className="text-primary text-5xl">hello</Text>
-      <Button variant={"outline"}>hello</Button>
-      <Text className="text-destructive-foreground">second </Text>
+      <Button variant={"destructive"}>hello world</Button>
     </View>
   );
 };
@@ -30,11 +30,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        //what if default is an array and we grab frist item for wrapper and second for text?
+        default: "bg-primary hover:bg-primary/90",
+        defaultText: "text-primary-foreground",
+        destructive: "bg-destructive hover:bg-destructive/90",
+        destructiveText: "text-destructive-foreground",
         outline:
-          "border border-input hover:bg-accent hover:text-accent-foreground",
+          "text-primary-foreground border border-input hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -69,7 +71,22 @@ const Button: React.FC<ButtonProps> = ({
     className={cn(buttonVariants({ variant, size, className }))}
     {...props}
   >
-    <Text className="">{props.children}</Text>
+    {/* <Text className="text-destructive-foreground">{props.children}</Text> */}
+    {/* {React.Children.toArray(props.children).map((child, index) => {
+      typeof child === "string" ? ( */}
+    {/* // so "data-disable-theme" is a hack to fix themeInverse, don't ask me why */}
+    <Text
+      // key={index}
+      // {...props}
+      // className={cn(buttonVariants({ variant, size, className }))}
+      className="text-destructive-foreground"
+    >
+      {props.children}
+    </Text>
+    {/* ) : (
+        child
+      );
+    })} */}
   </Pressable>
 );
 
