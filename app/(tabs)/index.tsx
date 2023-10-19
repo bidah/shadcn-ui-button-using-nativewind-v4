@@ -25,7 +25,7 @@ const App = () => {
   );
 };
 
-const buttonVariants = cva(
+const variants = [
   "flex-row items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
   {
     variants: {
@@ -53,8 +53,10 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-);
+  },
+];
+
+const buttonVariants = cva(...variants);
 
 interface ButtonProps
   extends PressableProps,
@@ -66,28 +68,31 @@ const Button: React.FC<ButtonProps> = ({
   intent,
   size,
   ...props
-}) => (
-  <Pressable
-    className={cn(buttonVariants({ variant, size, className }))}
-    {...props}
-  >
-    {/* <Text className="text-destructive-foreground">{props.children}</Text> */}
-    {/* {React.Children.toArray(props.children).map((child, index) => {
-      typeof child === "string" ? ( */}
-    {/* // so "data-disable-theme" is a hack to fix themeInverse, don't ask me why */}
-    <Text
-      // key={index}
-      // {...props}
-      // className={cn(buttonVariants({ variant, size, className }))}
-      className="text-destructive-foreground"
+}) => {
+  console.log(buttonVariants.toString());
+  return (
+    <Pressable
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
     >
-      {props.children}
-    </Text>
-    {/* ) : (
+      {/* <Text className="text-destructive-foreground">{props.children}</Text> */}
+      {/* {React.Children.toArray(props.children).map((child, index) => {
+      typeof child === "string" ? ( */}
+      {/* // so "data-disable-theme" is a hack to fix themeInverse, don't ask me why */}
+      <Text
+        // key={index}
+        // {...props}
+        // className={cn(buttonVariants({ variant, size, className }))}
+        className="text-destructive-foreground"
+      >
+        {props.children}
+      </Text>
+      {/* ) : (
         child
       );
     })} */}
-  </Pressable>
-);
+    </Pressable>
+  );
+};
 
 export default App;
