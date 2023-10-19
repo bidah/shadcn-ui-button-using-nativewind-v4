@@ -19,8 +19,8 @@ const App = () => {
   return (
     <View className="bg-background flex-1 p-5">
       <Text className="text-primary text-5xl">hello</Text>
-      <Button variant={"default"}>hello</Button>
-      <Text className="text-destructive-foreground text-4xl">second </Text>
+      <Button variant={"outline"}>hello</Button>
+      <Text className="text-destructive-foreground">second </Text>
     </View>
   );
 };
@@ -69,7 +69,7 @@ const Button: React.FC<ButtonProps> = ({
     className={cn(buttonVariants({ variant, size, className }))}
     {...props}
   >
-    <Text className="text-primary-foreground">{props.children}</Text>
+    <Text className="">{props.children}</Text>
   </Pressable>
 );
 

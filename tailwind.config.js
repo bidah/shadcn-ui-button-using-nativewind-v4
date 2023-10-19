@@ -4,28 +4,6 @@ module.exports = {
   content: ["app/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    colors: {
-      background: "rgb(var(--background))",
-      foreground: "rgb(var(--foreground))",
-      muted: "rgb(var(--muted))",
-      mutedForeground: "rgb(var(--muted-foreground))",
-      popover: "rgb(var(--popover))",
-      popoverForeground: "rgb(var(--popover-foreground))",
-      border: "rgb(var(--border))",
-      input: "rgb(var(--input))",
-      card: "rgb(var(--card))",
-      cardForeground: "rgb(var(--card-foreground))",
-      primary: "rgb(var(--primary))",
-      primaryForeground: "rgb(var(--primary-foreground))",
-      secondary: "rgb(var(--secondary))",
-      secondaryForeground: "rgb(var(--secondary-foreground))",
-      accent: "rgb(var(--accent))",
-      accentForeground: "rgb(var(--accent-foreground))",
-      destructive: "rgb(var(--destructive))",
-      destructiveForeground: "rgb(var(--destructive-foreground))",
-      ring: "rgb(var(--ring))",
-      radius: "rgb(var(--radius))",
-    },
     extend: {
       colors: {
         border: "rgb(var(--border))",
