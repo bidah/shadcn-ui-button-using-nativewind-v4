@@ -7,7 +7,11 @@ import React from "react";
 const App = () => {
   return (
     <View className="bg-background flex-1 p-5">
-      <Button variant={"default"}>hello world</Button>
+      <Button variant={"destructive"}>hello world</Button>
+      <View className="p-2" />
+      <Button variant={"default"} size="lg">
+        goodbye 👋
+      </Button>
     </View>
   );
 };
@@ -63,21 +67,7 @@ const Button: React.FC<ButtonProps> = ({
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >
-      {/* <Text className="text-destructive-foreground">{props.children}</Text> */}
-      {/* {React.Children.toArray(props.children).map((child, index) => {
-      typeof child === "string" ? ( */}
-      {/* // so "data-disable-theme" is a hack to fix themeInverse, don't ask me why */}
-      <Text
-        // key={index}
-        // {...props}
-        className={variants[1][`${variant}Text`]}
-      >
-        {props.children}
-      </Text>
-      {/* ) : (
-        child
-      );
-    })} */}
+      <Text className={variants[1][`${variant}Text`]}>{props.children}</Text>
     </Pressable>
   );
 };
