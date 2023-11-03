@@ -17,7 +17,7 @@
     "@react-navigation/native": "^6.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "expo": "~49.0.3",
+    "expo": "49.0.13",
     "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-router": "2.0.10",
